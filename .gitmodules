@@ -1,0 +1,6 @@
+[submodule "docker-codeception-run/build"]
+	path = docker-codeception-run/build
+	url = https://github.com/Codeception/Codeception.git
+[submodule "php-code"]
+	path = php-code
+	url = https://github.com/yiisoft/yii2-app-advanced.git
