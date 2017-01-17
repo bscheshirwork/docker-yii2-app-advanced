@@ -46,7 +46,7 @@ require `codeception/specify`, `codeception/verify`
     }
 ```
 
-Composition volumes `tests`:
+Composition volumes `tests` (in `docker-compose.yml`):
 ```
   codecept:
     image: bscheshir/codeception:7.0.13-fpm-4yii2
@@ -62,4 +62,26 @@ Composition volumes `tests`:
 For smart IDE copy source to `test/.repo` 
 ```
 root@e870b32bc227:/project# cp -r /repo/ /project/tests/.repo
+```
+
+selenium in `docker-compose.yml`
+```
+  firefox:
+    image: selenium/standalone-firefox-debug:3.0.1
+    ports:
+      - '4444'
+      - '5900'
+```
+configure `acceptance.suite.yml` in `frontend/tests` like
+```
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: http://nginx:8081/
+            host: firefox
+            port: 4444
+            browser: firefox
+        - Yii2:
+            part: init
 ```

@@ -34,8 +34,14 @@ services:
     image: bscheshir/codeception:php7.1.0-fpm-4yii2
     depends_on:
       - nginx
+      - firefox
     environment:
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9002 remote_enable=On"
       PHP_IDE_CONFIG: "serverName=codeception"
     volumes:
       - ../php-code:/project
+  firefox:
+    image: selenium/standalone-firefox-debug:3.0.1
+    ports:
+      - '4444'
+      - '5900'
