@@ -77,8 +77,10 @@ configure `acceptance.suite.yml` in `frontend/tests` like
 class_name: AcceptanceTester
 modules:
     enabled:
+# See docker-codeception-run/docker-compose.yml: "ports" of service "nginx" is null; the selenium service named "firefox"
+# See nginx-conf/nginx.conf: listen 80 for frontend; listen 8080 for backend
         - WebDriver:
-            url: http://nginx:8081/
+            url: http://nginx:80/
             host: firefox
             port: 4444
             browser: firefox
