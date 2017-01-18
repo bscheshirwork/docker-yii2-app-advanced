@@ -24,4 +24,4 @@ Thumbs.db
 /mysql-data-test
 
 # IDE autocomplite for the codeception classes (within core and vendors)
-/php-code/.codecept
+.codecept
