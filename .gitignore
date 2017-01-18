@@ -23,5 +23,5 @@ Thumbs.db
 # mysql test data dir
 /mysql-data-test
 
-# codeception source dir
-/php-code/tests/.repo
+# IDE autocomplite for the codeception classes (within core and vendors)
+/php-code/.codecept

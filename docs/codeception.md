@@ -59,9 +59,9 @@ Composition volumes `tests` (in `docker-compose.yml`):
       - ../php-code/tests:/project
 ```
 
-For smart IDE copy source to `test/.repo` 
+For smart IDE copy source to `.codecept` 
 ```
-root@e870b32bc227:/project# cp -r /repo/ /project/tests/.repo
+root@e870b32bc227:/project# cp -r /repo/ /project/.codecept
 ```
 
 selenium in `docker-compose.yml`
