@@ -87,3 +87,10 @@ modules:
         - Yii2:
             part: init
 ```
+
+After run yii2 `init` script you must change local entrypoint files `php-code/backend/web/index-test.php`, `php-code/frontend/web/index-test.php` for granted access from service firefox.
+```
+if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
+    die('You are not allowed to access this file.');
+}
+```
