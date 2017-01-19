@@ -57,8 +57,12 @@ For test used another base, but the same named service `db` (and the same connec
 ```
 > Note: error? `docker-compose down` and `sudo rm -rf ../mysql-data/*` 
 
+> Note: you can use mysqldump (in another terminal) at this way:
+```
+docker exec dockerrun_db_1 sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" yii2advanced' > /some/path/on/your/host/yii2advanced.sql
+```
 
-2.4.Leave container (`exit`, ctrl+c)
+2.5.Leave container (`exit`, ctrl+c)
 
 3.Run the composition
 ```
