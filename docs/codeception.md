@@ -24,8 +24,8 @@ Base image change: `codeception/codeception` -> `bscheshir/php:7.1.0-fpm-4yii2-x
 how to create it:
 ```
 cd docker-codeception-run
-git submodule add https://github.com/Codeception/Codeception.git docker-codeception-run/build
-cd docker-codeception-run/build
+git submodule add https://github.com/Codeception/Codeception.git build
+cd build
 git checkout 2.2 
 cp ../Dockerfile ../composer.json ./ 
 docker build -t bscheshir/codeception:php7.1.0-fpm-4yii2 .
