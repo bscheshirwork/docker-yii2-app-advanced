@@ -1,5 +1,5 @@
-FROM php:7.1.0-fpm
-#tag bscheshir/php:7.1.0-fpm-4yii2-xdebug
+FROM php:7.1.1-fpm
+# -t bscheshir/php:7.1.1-fpm-4yii2-xdebug .
 MAINTAINER BSCheshir <bscheshir.work@gmail.com>
 
 # libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev - for gd

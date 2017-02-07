@@ -1,5 +1,5 @@
-FROM bscheshir/php:7.1.0-fpm-4yii2-xdebug
-#tag bscheshir/codeception:php7.1.0-fpm-4yii2
+FROM bscheshir/php:7.1.1-fpm-4yii2-xdebug
+# -t bscheshir/codeception:php7.1.1-fpm-4yii2aar .
 MAINTAINER BSCheshir <bscheshir.work@gmail.com>
 
 # Install required system packages
