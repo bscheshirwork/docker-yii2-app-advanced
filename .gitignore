@@ -25,3 +25,6 @@ Thumbs.db
 
 # IDE autocomplite for the codeception classes (within core and vendors)
 .codecept
+
+#mysql query log
+/mysql-proxy/mysql.log
