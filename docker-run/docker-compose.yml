@@ -8,6 +8,7 @@ services:
     depends_on:
       - db
     environment:
+      TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=yii2advanced"
   nginx:
@@ -33,6 +34,7 @@ services:
     volumes:
       - ../mysql-data/db:/var/lib/mysql #mysql-data
     environment:
+      TZ: Europe/Moscow
       MYSQL_ROOT_PASSWORD: yii2advanced
       MYSQL_DATABASE: yii2advanced
       MYSQL_USER: yii2advanced

@@ -8,6 +8,7 @@ services:
     depends_on:
       - db
     environment:
+      TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
     image: nginx:1.11.9-alpine
@@ -28,6 +29,7 @@ services:
     volumes:
       - ./mysql-data/db:/var/lib/mysql #mysql-data
     environment:
+      TZ: Europe/Moscow
       MYSQL_ROOT_PASSWORD: yii2advanced
       MYSQL_DATABASE: yii2advanced
       MYSQL_USER: yii2advanced
