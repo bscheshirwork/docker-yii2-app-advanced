@@ -1,0 +1,34 @@
+version: '2'
+services:
+  php:
+    image: bscheshir/php:7.1.1-fpm-4yii2-xdebug
+    restart: always
+    volumes:
+      - ./php-code:/var/www/html #php-code
+    depends_on:
+      - db
+    environment:
+      XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
+  nginx:
+    image: nginx:1.11.9-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "8080:8080"
+    depends_on:
+      - php
+    volumes_from:
+      - php
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d #nginx-conf
+      - ./nginx-logs:/var/log/nginx #nginx-logs
+  db:
+    image: mysql:8.0.0
+    restart: always
+    volumes:
+      - ./mysql-data/db:/var/lib/mysql #mysql-data
+    environment:
+      MYSQL_ROOT_PASSWORD: yii2advanced
+      MYSQL_DATABASE: yii2advanced
+      MYSQL_USER: yii2advanced
+      MYSQL_PASSWORD: yii2advanced
