@@ -1,5 +1,5 @@
-FROM php:7.1.1-fpm
-# -t bscheshir/php:7.1.1-fpm-4yii2-xdebug .
+FROM php:7.1.2-fpm
+# -t bscheshir/php:7.1.2-fpm-4yii2-xdebug .
 MAINTAINER BSCheshir <bscheshir.work@gmail.com>
 
 # libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev - for gd
@@ -59,7 +59,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer global require --optimize-autoloader "fxp/composer-asset-plugin:^1.2.0"
 
-ENV XDEBUG_VERSION 2.5.0
+ENV XDEBUG_VERSION 2.5.1
 
 RUN curl -fsSL "http://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz" -o xdebug-$XDEBUG_VERSION.tar.gz && \
     mkdir -p xdebug-$XDEBUG_VERSION && \
