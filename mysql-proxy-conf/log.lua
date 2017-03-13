@@ -27,7 +27,7 @@
 -- This script will log the current date and time, the connection id
 -- and the query to a file named "mysql.log"
 --
-local log_file = '/opt/mysql-proxy/mysql.log'
+local log_file = os.getenv("LOG_FILE")
 
 local fh = io.open(log_file, "a+")
 

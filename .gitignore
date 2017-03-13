@@ -23,6 +23,9 @@ Thumbs.db
 # mysql test data dir
 /mysql-data-test
 
+# mysql-proxy logs dir
+/mysql-proxy-logs
+
 # IDE autocomplite for the codeception classes (within core and vendors)
 .codecept
 
