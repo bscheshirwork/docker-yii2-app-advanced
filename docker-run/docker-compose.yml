@@ -47,14 +47,15 @@ services:
       - "3308:3306" #for external connection
     restart: always
     volumes:
-      - ../mysql-proxy/log.lua:/opt/log.lua
-      - ../mysql-proxy/mysql.log:/opt/mysql-proxy/mysql.log
+      - ../mysql-proxy-conf:/opt/mysql-proxy/conf
+      - ../mysql-proxy-logs:/opt/mysql-proxy/logs
     environment:
       PROXY_DB_HOST:
       PROXY_DB_PORT: 3306
       REMOTE_DB_HOST: mysql
       REMOTE_DB_PORT: 3306
-      PROXY_LUA_SCRIPT: "/opt/log.lua"
+      LUA_SCRIPT: "/opt/mysql-proxy/conf/log.lua"
+      LOG_FILE: "/opt/mysql-proxy/logs/mysql.log"
     depends_on:
       - mysql
 
