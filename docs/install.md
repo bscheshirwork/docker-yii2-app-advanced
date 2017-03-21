@@ -23,6 +23,9 @@ root@abfe3b3ca645:/var/www/html#
 ```
 2.1.Run `composer update` use github token (see `https://github.com/settings/tokens`)
 
+cache folder simply linked into containers
+`- ~/.composer/cache:/root/.composer/cache`
+
 ```
 composer update
 ```

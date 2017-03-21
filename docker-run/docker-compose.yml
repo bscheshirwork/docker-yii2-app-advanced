@@ -5,6 +5,7 @@ services:
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
+      - ~/.composer/cache:/root/.composer/cache
     depends_on:
       - db
     environment:
