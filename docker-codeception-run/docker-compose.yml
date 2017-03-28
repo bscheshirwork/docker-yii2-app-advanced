@@ -47,7 +47,7 @@ services:
       - ../php-code:/project
       - ~/.composer/cache:/root/.composer/cache
   firefox:
-    image: selenium/standalone-firefox-debug:3.0.1
+    image: selenium/standalone-firefox-debug:3.2.0
     ports:
       - '4444'
       - '5900'
