@@ -12,7 +12,7 @@ services:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
-    image: nginx:1.11.12-alpine
+    image: nginx:1.11.13-alpine
     restart: always
     ports:
       - "80:80"
@@ -25,7 +25,7 @@ services:
       - ./nginx-conf:/etc/nginx/conf.d #nginx-conf
       - ./nginx-logs:/var/log/nginx #nginx-logs
   db:
-    image: mysql:8.0.0
+    image: mysql:8.0.1
     restart: always
     volumes:
       - ./mysql-data/db:/var/lib/mysql #mysql-data

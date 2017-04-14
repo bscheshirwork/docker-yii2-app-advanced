@@ -13,7 +13,7 @@ services:
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=yii2advanced"
   nginx:
-    image: nginx:1.11.12-alpine
+    image: nginx:1.11.13-alpine
     restart: always
     depends_on:
       - php
@@ -23,7 +23,7 @@ services:
       - ../nginx-conf:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
   db:
-    image: mysql:8.0.0
+    image: mysql:8.0.1
     restart: always
     ports:
       - "33006:3306"
@@ -47,7 +47,7 @@ services:
       - ../php-code:/project
       - ~/.composer/cache:/root/.composer/cache
   firefox:
-    image: selenium/standalone-firefox-debug:3.2.0
+    image: selenium/standalone-firefox-debug:3.3.1
     ports:
       - '4444'
       - '5900'
