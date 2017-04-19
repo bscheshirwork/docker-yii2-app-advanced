@@ -1,9 +1,9 @@
-[submodule "docker-codeception-run/build"]
-	path = docker-codeception-run/build
-	url = https://github.com/Codeception/Codeception.git
 [submodule "php-code"]
 	path = php-code
 	url = https://github.com/yiisoft/yii2-app-advanced.git
 [submodule "docker-run/docker-php"]
 	path = docker-run/docker-php
 	url = https://github.com/bscheshirwork/docker-php.git
+[submodule "docker-codeception-run/docker-codeception-yii2"]
+	path = docker-codeception-run/docker-codeception-yii2
+	url = https://github.com/bscheshirwork/docker-codeception-yii2.git
