@@ -52,6 +52,7 @@ services:
       - ../mysql-proxy-conf:/opt/mysql-proxy/conf
       - ../mysql-proxy-logs:/opt/mysql-proxy/logs
     environment:
+      TZ: Europe/Moscow
       PROXY_DB_HOST:
       PROXY_DB_PORT: 3306
       REMOTE_DB_HOST: mysql
