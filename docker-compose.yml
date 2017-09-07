@@ -12,7 +12,7 @@ services:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
-    image: nginx:1.13.3-alpine
+    image: nginx:1.13.5-alpine
     restart: always
     ports:
       - "80:80"
