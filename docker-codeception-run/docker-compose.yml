@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.1.9-fpm-4yii2-xdebug
+    image: bscheshir/php:7.1.10-fpm-4yii2-xdebug
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
@@ -37,7 +37,7 @@ services:
       MYSQL_USER: yii2advanced
       MYSQL_PASSWORD: yii2advanced
   codecept:
-    image: bscheshir/codeception:php7.1.9-fpm-yii2
+    image: bscheshir/codeception:php7.1.10-fpm-yii2
     depends_on:
       - nginx
       - chrome
@@ -48,7 +48,7 @@ services:
       - ../php-code:/project
       - ~/.composer/cache:/root/.composer/cache
   chrome:
-    image: selenium/standalone-chrome-debug:3.5.2
+    image: selenium/standalone-chrome-debug:3.6.0
     volumes:
       - /dev/shm:/dev/shm # the docker run instance may use the default 64MB, that may not be enough in some cases
     ports:
