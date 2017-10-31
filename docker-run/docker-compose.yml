@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.1.10-fpm-4yii2-xdebug
+    image: bscheshir/php:7.1.11-fpm-4yii2-xdebug
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
@@ -13,7 +13,7 @@ services:
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=yii2advanced"
   nginx:
-    image: nginx:1.13.5-alpine
+    image: nginx:1.13.6-alpine
     restart: always
     ports:
       - "8080:8080"

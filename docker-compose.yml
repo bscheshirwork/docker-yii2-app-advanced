@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.1.10-fpm-alpine-4yii2
+    image: bscheshir/php:7.1.11-fpm-alpine-4yii2
     restart: always
     volumes:
       - ./php-code:/var/www/html #php-code
@@ -12,7 +12,7 @@ services:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
-    image: nginx:1.13.5-alpine
+    image: nginx:`-alpine
     restart: always
 #    ports: # use nginx-proxy in same network (see ./docs/nginx-proxy.md)
 #      - "8080:8080"
