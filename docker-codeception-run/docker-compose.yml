@@ -10,7 +10,7 @@ services:
       - db
     environment:
       TZ: Europe/Moscow
-      XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 var_display_max_data=1024 var_display_max_depth=5"
+      XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 remote_enable=On var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=yii2advanced"
   nginx:
     image: nginx:1.13.6-alpine
@@ -20,8 +20,13 @@ services:
     volumes_from:
       - php
     volumes:
-      - ../nginx-conf:/etc/nginx/conf.d #nginx-conf
+      - ../nginx-conf-test:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
+    networks:
+      default:
+        aliases:
+         - backend.dev
+         - frontend.dev
   db:
     image: mysql:8.0.3
     entrypoint: ['/entrypoint.sh', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
@@ -40,15 +45,16 @@ services:
     image: bscheshir/codeception:php7.1.11-fpm-yii2
     depends_on:
       - nginx
-      - chrome
+      - browser
     environment:
+      TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9002 remote_enable=On"
       PHP_IDE_CONFIG: "serverName=codeception"
-    volumes:
-      - ../php-code:/project
-      - ~/.composer/cache:/root/.composer/cache
-  chrome:
-    image: selenium/standalone-chrome-debug:3.6.0
+    volumes_from:
+      - php
+  browser:
+    image: selenium/standalone-chrome-debug:3.7.1
+#    image: selenium/standalone-firefox-debug:3.7.1
     volumes:
       - /dev/shm:/dev/shm # the docker run instance may use the default 64MB, that may not be enough in some cases
     ports:
