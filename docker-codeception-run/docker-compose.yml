@@ -13,7 +13,7 @@ services:
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001 remote_enable=On var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=yii2advanced"
   nginx:
-    image: nginx:1.13.6-alpine
+    image: nginx:1.13.7-alpine
     restart: always
     depends_on:
       - php
