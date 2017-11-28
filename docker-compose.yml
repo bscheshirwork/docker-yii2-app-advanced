@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.1.11-fpm-alpine-4yii2
+    image: bscheshir/php:7.1.12-fpm-alpine-4yii2
     restart: always
     volumes:
       - ./php-code:/var/www/html #php-code
