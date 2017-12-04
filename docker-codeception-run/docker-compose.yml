@@ -53,8 +53,8 @@ services:
     volumes_from:
       - php
   browser:
-    image: selenium/standalone-chrome-debug:3.7.1
-#    image: selenium/standalone-firefox-debug:3.7.1
+    image: selenium/standalone-chrome-debug:3.8.1
+#    image: selenium/standalone-firefox-debug:3.8.1
     volumes:
       - /dev/shm:/dev/shm # the docker run instance may use the default 64MB, that may not be enough in some cases
     ports:
