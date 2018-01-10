@@ -42,7 +42,7 @@ services:
       MYSQL_USER: yii2advanced
       MYSQL_PASSWORD: yii2advanced
   codecept:
-    image: bscheshir/codeception:php7.2.0-fpm-yii2
+    image: bscheshir/codeception:php7.2.1-fpm-yii2
     depends_on:
       - nginx
       - browser
