@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.2.1-fpm-4yii2-xdebug
+    image: bscheshir/php:7.2.1-fpm-alpine-4yii2-xdebug
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
@@ -27,6 +27,8 @@ services:
         aliases:
          - backend.dev
          - frontend.dev
+    environment:
+      TZ: Europe/Moscow
   db:
     image: mysql:8.0.3
     entrypoint: ['/entrypoint.sh', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
@@ -42,16 +44,16 @@ services:
       MYSQL_USER: yii2advanced
       MYSQL_PASSWORD: yii2advanced
   codecept:
-    image: bscheshir/codeception:php7.2.1-fpm-yii2
+    image: bscheshir/codeception:php7.2.1-fpm-alpine-yii2
     depends_on:
       - nginx
       - browser
+    volumes_from:
+      - php
     environment:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9002 remote_enable=On"
       PHP_IDE_CONFIG: "serverName=codeception"
-    volumes_from:
-      - php
   browser:
     image: selenium/standalone-chrome-debug:3.8.1
 #    image: selenium/standalone-firefox-debug:3.8.1
@@ -60,3 +62,5 @@ services:
     ports:
       - '4444'
       - '5900'
+    environment:
+      TZ: Europe/Moscow
