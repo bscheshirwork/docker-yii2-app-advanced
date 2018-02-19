@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.2.1-fpm-alpine-4yii2-xdebug
+    image: bscheshir/php:7.2.2-fpm-alpine-4yii2-xdebug
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
@@ -29,7 +29,6 @@ services:
       TZ: Europe/Moscow
   mysql:
     image: mysql:8.0.3
-    entrypoint: ['/entrypoint.sh', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
     restart: always
     expose:
       - "3306" #for service mysql-proxy
