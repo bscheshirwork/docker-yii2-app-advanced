@@ -28,7 +28,7 @@ services:
     environment:
       TZ: Europe/Moscow
   mysql:
-    image: mysql:8.0.3
+    image: mysql:8.0.4
     restart: always
     expose:
       - "3306" #for service mysql-proxy
