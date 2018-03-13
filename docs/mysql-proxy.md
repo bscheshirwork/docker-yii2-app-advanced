@@ -4,12 +4,12 @@ https://github.com/bscheshirwork/docker-mysql-proxy
 # Usage with docker-compose
 
 without
-```
+```yml
 version: '2'
 
 services:
   db:
-    image: mysql:8.0.0
+    image: mysql:8.0.4
     restart: always
     ports:
       - "3306:3306"
@@ -23,12 +23,12 @@ services:
 ```
 
 within
-```
+```yml
 version: '2'
 
 services:
   mysql:
-    image: mysql:8.0.0
+    image: mysql:8.0.4
     restart: always
     expose:
       - "3306" #for service mysql-proxy
@@ -61,7 +61,7 @@ services:
 
 # Query to stdout
 For `docker-compose up` without `-d` (`../mysql-proxy/main.lua`)
-```
+```lua
 function read_query(packet)
    if string.byte(packet) == proxy.COM_QUERY then
 	print(string.sub(packet, 2))
@@ -71,7 +71,7 @@ end
 
 # Query logging for mysql-proxy 
 
-```
+```yml
 ...
     volumes:
       - ../mysql-proxy/log.lua:/opt/log.lua
@@ -85,7 +85,7 @@ end
 ```
 
 `/mysql-proxy/log.lua` https://gist.github.com/simonw/1039751
-```
+```lua
 local log_file = '/opt/mysql-proxy/mysql.log'
 
 local fh = io.open(log_file, "a+")
@@ -109,11 +109,13 @@ https://hub.docker.com/r/gediminaspuksmys/mysqlproxy/
 # troubleshooting
 If you can't create the chain `mysql` -> `mysql-proxy` -> `external client liten 0.0.0.0:3308`
 check extends ports on the `mysql` service and/or add `expose` directly
-```
+```yml
     expose:
       - "3306" #for service mysql-proxy
 ```
 
 You can create
- ```touch mysql-proxy/mysql.log```
+```sh
+touch mysql-proxy/mysql.log
+```
 before run the suite

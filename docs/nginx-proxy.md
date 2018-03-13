@@ -51,7 +51,7 @@ server {
 version: '2'
 services:
   nginx-proxy:
-    image: nginx:1.13.6-alpine
+    image: nginx:1.13.9-alpine
     restart: always
     ports:
       - "80:80"
@@ -65,7 +65,7 @@ networks:
 ```
 
 Use 
-```
+```sh
 docker-compose -f nginx-proxy/docker-compose.yml up -d 
 ```
 command after `docker-compose up -d` of main composition.
