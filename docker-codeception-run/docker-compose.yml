@@ -56,7 +56,7 @@ services:
       PHP_IDE_CONFIG: "serverName=codeception"
   browser:
     image: selenium/standalone-chrome-debug:3.7
-#    image: selenium/standalone-firefox-debug:3.10.0
+#    image: selenium/standalone-firefox-debug:3.11.0
     volumes:
       - /dev/shm:/dev/shm # the docker run instance may use the default 64MB, that may not be enough in some cases
     ports:
