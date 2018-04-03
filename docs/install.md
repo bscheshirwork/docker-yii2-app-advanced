@@ -78,9 +78,14 @@ Creating dockerrun_nginx_1
 
 4.See url `0.0.0.0:8080` - frontend, `0.0.0.0:8081` - backend
 
-For xdebug use environment (for example your ip is 192.168.0.83)
+For xdebug we can use environment (for example your developer machine is have dns record like 
+```
+cat /etc/hosts
+127.0.1.1	dev-Aspire-V3-772
+```
+)
 ```yml
-XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9001"
+XDEBUG_CONFIG: "remote_host=dev-Aspire-V3-772 remote_port=9001"
 PHP_IDE_CONFIG: "serverName=docker-yii2-advanced"
 ```
 PHPStorm settings:
