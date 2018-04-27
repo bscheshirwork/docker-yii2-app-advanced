@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.2.4-fpm-alpine-4yii2-xdebug
+    image: bscheshir/php:7.2.5-fpm-alpine-4yii2-xdebug
     restart: always
     volumes:
       - ../php-code:/var/www/html #php-code
@@ -44,7 +44,7 @@ services:
       MYSQL_USER: yii2advanced
       MYSQL_PASSWORD: yii2advanced
   codecept:
-    image: bscheshir/codeception:php7.2.4-fpm-alpine-yii2
+    image: bscheshir/codeception:php7.2.5-fpm-alpine-yii2
     depends_on:
       - nginx
       - browser
