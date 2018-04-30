@@ -78,21 +78,26 @@ Creating dockerrun_nginx_1
 
 4.See url `0.0.0.0:8080` - frontend, `0.0.0.0:8081` - backend
 
-For xdebug we can use environment (for example your developer machine is have dns record like 
-```
-cat /etc/hosts
-127.0.1.1	dev-Aspire-V3-772
-```
-)
+For xdebug we can use environment 
 ```yml
 XDEBUG_CONFIG: "remote_host=dev-Aspire-V3-772 remote_port=9001"
 PHP_IDE_CONFIG: "serverName=docker-yii2-advanced"
 ```
+`remote_host` can be a your IP address (outside of docker network) or your DNS, if you have a dns-server (for example - local dns server or dns-server in your router. Approximity you have a DNS like your machine name). Docker will connect to this dns server from the running php container and resolve it.
+
+> In `mac OS` you can use docker special name `host.docker.internal`.
+
+
 PHPStorm settings:
 
 Create new Service named (like PHP_IDE_CONFIG value)
-`Settings > Languages & Frameworks > PHP > Servers: [Name => docker-yii2-advanced]`
+`Settings > Languages & Frameworks > PHP > Servers: [Name => yii2advanced]`
+value is equal to `serverName` https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L14
+(other values `ip`, `port` is even don't matter). 
+
 Use path mapping:
-`Settings > Languages & Frameworks > PHP > Servers: [Use path mapping => True, /home/user/petshelter/php-code => /var/www/html]`
+`Settings > Languages & Frameworks > PHP > Servers: [Use path mapping => True, /your/machine/path/to/php-code => /var/www/html]`
 Change debug port 9000
 `Settings > Languages & Frameworks > PHP > Debug: [Debug port => 9001]`
+https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L13
+`remote_port=9001`
