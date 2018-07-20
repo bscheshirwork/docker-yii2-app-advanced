@@ -1,6 +1,6 @@
 
 Install [docker](https://docs.docker.com/engine/getstarted/step_one/) and [docker-compose](https://docs.docker.com/compose/install/)
-> Note: we need latest version (read instruction!) 
+> Note: we need the latest version (read this instruction!) 
 
 1.Clone project
 ```sh
@@ -17,11 +17,11 @@ Creating dockerrun_db_1
 root@abfe3b3ca645:/var/www/html#
 ```
 
-Inside container:
+Inside the container:
 ```sh
 root@abfe3b3ca645:/var/www/html#
 ```
-2.1.Run `composer update` use github token (see `https://github.com/settings/tokens`)
+2.1.Run `composer update` and use github token (see `https://github.com/settings/tokens`)
 
 cache folder simply linked into containers
 `- ~/.composer/cache:/root/.composer/cache`
@@ -30,7 +30,7 @@ cache folder simply linked into containers
 composer update -vv
 ```
 
-2.2.Run yii2 init script (0 - Development) for create local settings (see [preparing-application](https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/start-installation.md#preparing-application) 1-3)
+2.2.Run yii2 init script (0 - Development) to create local settings (see [preparing-application](https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/start-installation.md#preparing-application) 1-3)
 ```sh
 ./init
 ``` 
@@ -60,7 +60,7 @@ For test used another base, but the same named service `db` (and the same connec
 ```
 > Note: error? `docker-compose down` and `sudo rm -rf ../mysql-data/*` 
 
-> Note: you can use mysqldump (in another terminal) at this way:
+> Note: you can use mysqldump (in another terminal) this way:
 ```sh
 docker exec dockerrun_db_1 sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" yii2advanced' > /some/path/on/your/host/yii2advanced.sql
 ```
@@ -83,21 +83,21 @@ For xdebug we can use environment
 XDEBUG_CONFIG: "remote_host=dev-Aspire-V3-772 remote_port=9001"
 PHP_IDE_CONFIG: "serverName=docker-yii2-advanced"
 ```
-`remote_host` can be a your IP address (outside of docker network) or your DNS, if you have a dns-server (for example - local dns server or dns-server in your router. Approximity you have a DNS like your machine name). Docker will connect to this dns server from the running php container and resolve it.
+`remote_host` can be your IP address (outside of docker network) or your DNS if you have a dns-server (for example - local dns server or dns-server in your router; possibly you have a domain name like your machine name). Docker will connect to this DNS server from the running php container and resolve it.
 
 > In `mac OS` you can use docker special name `host.docker.internal`.
 
 
 PHPStorm settings:
 
-Create new Service named (like PHP_IDE_CONFIG value)
+Create new Service named <PHP_IDE_CONFIG value>
 `Settings > Languages & Frameworks > PHP > Servers: [Name => yii2advanced]`
 value is equal to `serverName` https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L14
-(other values `ip`, `port` is even don't matter). 
+(other values (`ip`, `port`) doesn't matter). 
 
 Use path mapping:
 `Settings > Languages & Frameworks > PHP > Servers: [Use path mapping => True, /your/machine/path/to/php-code => /var/www/html]`
-Change debug port 9000
+Change debug port from 9000 to 9001
 `Settings > Languages & Frameworks > PHP > Debug: [Debug port => 9001]`
 https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L13
 `remote_port=9001`
