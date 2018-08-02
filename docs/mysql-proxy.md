@@ -9,7 +9,7 @@ version: '2'
 
 services:
   db:
-    image: mysql:8.0.11
+    image: mysql:8.0.12
     restart: always
     ports:
       - "3306:3306"
@@ -28,7 +28,7 @@ version: '2'
 
 services:
   mysql:
-    image: mysql:8.0.11
+    image: mysql:8.0.12
     restart: always
     expose:
       - "3306" #for service mysql-proxy
