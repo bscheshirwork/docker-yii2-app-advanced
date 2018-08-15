@@ -47,7 +47,8 @@ composer update -vv
 ],
 ```
 
-For test used another base, but the same named service `db` (and the same connect string)
+For tests we're using the same component `db` with the same connection string because we're using 
+another folder to sync with docker contaner (`mysql-data-test`)
 `php-code/common/config/test-local.php`
 ```sh
 'db' => [
