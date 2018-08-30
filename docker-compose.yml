@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: bscheshir/php:7.2.8-fpm-alpine-4yii2
+    image: bscheshir/php:7.2.9-fpm-alpine-4yii2
     restart: always
     volumes:
       - ./php-code:/var/www/html #php-code
@@ -12,7 +12,7 @@ services:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
-    image: nginx:1.15.2-alpine
+    image: nginx:1.15.3-alpine
     restart: always
     expose:
       - "8080"
