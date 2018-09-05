@@ -10,8 +10,8 @@ services:
       - db
     environment:
       TZ: Europe/Moscow
-      XDEBUG_CONFIG: "remote_host=dev-Aspire-V3-772 remote_port=9001 remote_enable=On var_display_max_data=1024 var_display_max_depth=5"
-      PHP_IDE_CONFIG: "serverName=yii2advanced"
+      XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT} remote_enable=On var_display_max_data=1024 var_display_max_depth=5"
+      PHP_IDE_CONFIG: "serverName=${DEV_SERVER_NAME}"
   nginx:
     image: nginx:1.15.3-alpine
     restart: always
@@ -52,8 +52,8 @@ services:
       - php
     environment:
       TZ: Europe/Moscow
-      XDEBUG_CONFIG: "remote_host=dev-Aspire-V3-772 remote_port=9002 remote_enable=On"
-      PHP_IDE_CONFIG: "serverName=codeception"
+      XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT_CODECEPTION} remote_enable=On"
+      PHP_IDE_CONFIG: "serverName=${DEV_SERVER_NAME_CODECEPTION}"
   browser:
     image: selenium/standalone-chrome-debug:3.7
 #    image: selenium/standalone-firefox-debug:3.14.0

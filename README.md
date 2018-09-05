@@ -3,13 +3,17 @@ Dockerized docker-yii2-advanced
 
 Docker image composition (docker-compose) for [yii2-app-advanced](https://github.com/yiisoft/yii2-app-advanced):
 
- Simplify your way to start with pure yii2-app-advanced template.
+Simplify your way to start with pure yii2-app-advanced template.
  
- Use built-in image `Codeception` for run tests and `mysql-proxy` for show sql-query log.
+Use `docker-compose up -d` for run without any debug tools. We can use `nginx-proxy` in same `docker network`.
  
- Use `./docker-run/docker-compose.yml` for debug you project through `XDebug`
+You can also use `./docker-compose.yml` (`docker-compose up -d`) in production.
  
- You can also use `./docker-compose.yml` in production.
+Create your own local config `cp .env_example .env` and...
+ 
+Use `docker-compose -f docker-codeception-run/docker-compose.yml up -d` for built-in image `Codeception`'s tests 
+
+Use `docker-compose -f docker-run/docker-compose.yml up -d` for debug you project through `XDebug`; `mysql-proxy` for show sql-query log.
 
 * [Install](./docs/install.md)
 * [Codeception](/docs/codeception.md).

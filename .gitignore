@@ -28,3 +28,6 @@ Thumbs.db
 
 # IDE autocomplite for the codeception classes (within core and vendors)
 .codecept
+
+# docker-compose local config
+.env
