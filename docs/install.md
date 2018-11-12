@@ -102,3 +102,12 @@ Change debug port from 9000 to 9001
 `Settings > Languages & Frameworks > PHP > Debug: [Debug port => 9001]`
 https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L13
 `remote_port=9001`
+
+# Upgrade to latest MySQL
+
+For existing projects with `MySQL 8.0.12`: 
+```sh
+docker-compose up -d
+docker-compose exec mysql mysql_upgrade -uroot -p
+```
+https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-13.html
