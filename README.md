@@ -22,4 +22,4 @@ Use `docker-compose -f docker-run/docker-compose.yml up -d` for debug you projec
 
 All Rights Reserved.
 
-2018 © bscheshir.work@gmail.com
+2020 © bscheshir.work@gmail.com
