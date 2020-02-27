@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: bscheshir/codeception:php-fpm-alpine-yii2
+    runs-on: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v2
