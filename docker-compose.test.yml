@@ -63,4 +63,3 @@ services:
       TZ: Europe/Moscow
   sut:
     build: ./docker-codeception-run
-    command: bash /run_tests.sh
