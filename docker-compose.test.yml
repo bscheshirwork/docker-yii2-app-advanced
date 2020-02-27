@@ -65,3 +65,5 @@ services:
     build: ./docker-codeception-run
     depends_on:
       - db
+    volumes:
+      - ~/.composer/cache:/root/.composer/cache
