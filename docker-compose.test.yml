@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
   php:
     image: bscheshir/php:7.4.2-fpm-alpine-4yii2-xdebug
@@ -15,9 +15,8 @@ services:
     restart: always
     depends_on:
       - php
-    volumes_from:
-      - php
     volumes:
+      - ../php-code:/var/www/html #php-code
       - ../nginx-conf-test:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
     networks:
@@ -48,8 +47,9 @@ services:
     depends_on:
       - nginx
       - browser
-    volumes_from:
-      - php
+    volumes:
+      - ../php-code:/var/www/html #php-code
+      - ~/.composer/cache:/root/.composer/cache
     environment:
       TZ: Europe/Moscow
   browser:
@@ -61,3 +61,6 @@ services:
       - '5900'
     environment:
       TZ: Europe/Moscow
+  sut:
+    build: ./docker-codeception-run
+    command: run_tests.sh
