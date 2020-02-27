@@ -63,3 +63,5 @@ services:
       TZ: Europe/Moscow
   sut:
     build: ./docker-codeception-run
+    depends_on:
+      - db
