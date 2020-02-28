@@ -5,7 +5,6 @@ RUN /bin/bash -c 'chmod +x /run_tests.sh'
 RUN cat /run_tests.sh
 RUN ls -luha /run_tests.sh
 ENTRYPOINT ["/run_tests.sh"]
-RUN composer global require codeception/module-filesystem codeception/module-yii2 --dev
 RUN git clone https://github.com/yiisoft/yii2-app-advanced.git /var/www/html
 RUN composer install --no-dev
 RUN ./init --env=Development --overwrite=All
