@@ -1,4 +1,4 @@
-FROM bscheshir/codeception:php7.4.2-fpm-alpine-yii2
+FROM bscheshir/codeception:php7.4.3-fpm-alpine-yii2
 
 COPY ./run_tests.sh /run_tests.sh
 RUN /bin/bash -c 'chmod +x /run_tests.sh'
