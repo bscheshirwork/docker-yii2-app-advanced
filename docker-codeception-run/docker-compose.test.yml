@@ -5,7 +5,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ../php-code:/var/www/html #php-code
+      - php-code:/var/www/html #php-code must populate
       - ~/.composer/cache:/root/.composer/cache
     environment:
       TZ: Europe/Moscow
@@ -15,7 +15,7 @@ services:
     depends_on:
       - sut
     volumes:
-      - ../php-code:/var/www/html #php-code
+      - php-code:/var/www/html #php-code
       - ../nginx-conf-test:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
     networks:
