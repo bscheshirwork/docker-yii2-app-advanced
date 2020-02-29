@@ -1,6 +1,8 @@
 Dockerized docker-yii2-advanced
 ===============================
 
+![Docker](https://github.com/bscheshir/docker-yii2-app-advanced/workflows/Docker/badge.svg)
+
 Docker image composition (docker-compose) for [yii2-app-advanced](https://github.com/yiisoft/yii2-app-advanced):
 
 Simplify your way to start with pure yii2-app-advanced template.
