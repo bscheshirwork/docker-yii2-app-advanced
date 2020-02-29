@@ -42,7 +42,7 @@ services:
     environment:
       TZ: Europe/Moscow
   sut:
-    build: ./docker-codeception-run
+    build: .
     depends_on:
       - db
     volumes:
