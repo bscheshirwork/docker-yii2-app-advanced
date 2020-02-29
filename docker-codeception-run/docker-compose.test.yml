@@ -1,5 +1,14 @@
 version: '3.7'
 services:
+  sut:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - ../php-code:/var/www/html #php-code
+      - ~/.composer/cache:/root/.composer/cache
+    environment:
+      TZ: Europe/Moscow
   nginx:
     image: nginx:1.17.8-alpine
     restart: always
@@ -39,14 +48,5 @@ services:
     ports:
       - '4444'
       - '5900'
-    environment:
-      TZ: Europe/Moscow
-  sut:
-    build: .
-    depends_on:
-      - db
-    volumes:
-      - ../php-code:/var/www/html #php-code
-      - ~/.composer/cache:/root/.composer/cache
     environment:
       TZ: Europe/Moscow
