@@ -12,4 +12,7 @@ RUN git clone https://github.com/yiisoft/yii2-app-advanced.git /var/www/html
 RUN composer install --no-dev
 RUN sed -i -e "s/.*dsn.*/"\'"dsn"\'" => "\'"mysql:host=db;dbname=yii2advanced"\'",/" -e "s/.*username.*/"\'"username"\'" => "\'"yii2advanced"\'",/" -e "s/.*password.*/"\'"password"\'" => "\'"yii2advanced"\'",/" -e "s/.*charset.*/"\'"charset"\'" => "\'"utf8mb4"\'",/" /var/www/html/environments/dev/common/config/main-local.php
 RUN sed -i -e "s/.*dsn.*/"\'"dsn"\'" => "\'"mysql:host=db;dbname=yii2advanced"\'",/" /var/www/html/environments/dev/common/config/test-local.php
+RUN cp /var/www/html/environments/prod/console/config/main-local.php /var/www/html/environments/dev/console/config/main-local.php
+RUN cp /var/www/html/environments/prod/frontend/config/main-local.php /var/www/html/environments/dev/frontend/config/main-local.php
+RUN cp /var/www/html/environments/prod/backend/config/main-local.php /var/www/html/environments/dev/backend/config/main-local.php
 RUN ./init --env=Development --overwrite=All
