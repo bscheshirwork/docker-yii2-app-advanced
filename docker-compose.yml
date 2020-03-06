@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
   php:
     image: bscheshir/php:7.4.3-fpm-alpine-4yii2
@@ -22,9 +22,8 @@ services:
 #      - "8081:8081"
     depends_on:
       - php
-    volumes_from:
-      - php
     volumes:
+      - ../php-data:/var/www/html #php-data
       - ./nginx-conf:/etc/nginx/conf.d #nginx-conf
       - ./nginx-logs:/var/log/nginx #nginx-logs
     environment:

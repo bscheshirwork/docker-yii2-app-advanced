@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
   php:
     image: bscheshir/php:7.4.3-fpm-alpine-4yii2-xdebug
@@ -17,9 +17,8 @@ services:
     restart: always
     depends_on:
       - php
-    volumes_from:
-      - php
     volumes:
+      - ../php-data:/var/www/html #php-data
       - ../nginx-conf-test:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
     networks:
@@ -50,8 +49,8 @@ services:
     depends_on:
       - nginx
       - browser
-    volumes_from:
-      - php
+    volumes:
+      - ../php-data:/var/www/html #php-data
     environment:
       TZ: Europe/Moscow
       XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT_CODECEPTION} remote_enable=On"
