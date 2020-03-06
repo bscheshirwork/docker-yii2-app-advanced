@@ -35,8 +35,8 @@ composer update -vv
 ./init
 ``` 
 
-2.3.Synchronize db settings (`docker-run/docker-compose.yml`, `php-code/common/config/main-local.php`; `docker-codeception-run/docker-compose.yml`, `php-code/common/config/test-local.php`)
-`php-code/common/config/main-local.php`
+2.3.Synchronize db settings (`docker-run/docker-compose.yml`, `php-data/common/config/main-local.php`; `docker-codeception-run/docker-compose.yml`, `php-data/common/config/test-local.php`)
+`php-data/common/config/main-local.php`
 ```sh
 'db' => [
     'class' => 'yii\db\Connection',
@@ -49,7 +49,7 @@ composer update -vv
 
 For tests we're using the same component `db` with the same connection string because we're using 
 another folder to sync with docker contaner (`mysql-data-test`)
-`php-code/common/config/test-local.php`
+`php-data/common/config/test-local.php`
 ```sh
 'db' => [
 ],
@@ -97,7 +97,7 @@ value is equal to `serverName` https://github.com/bscheshirwork/docker-yii2-app-
 (other values (`ip`, `port`) doesn't matter). 
 
 Use path mapping:
-`Settings > Languages & Frameworks > PHP > Servers: [Use path mapping => True, /your/machine/path/to/php-code => /var/www/html]`
+`Settings > Languages & Frameworks > PHP > Servers: [Use path mapping => True, /your/machine/path/to/php-data => /var/www/html]`
 Change debug port from 9000 to 9001
 `Settings > Languages & Frameworks > PHP > Debug: [Debug port => 9001]`
 https://github.com/bscheshirwork/docker-yii2-app-advanced/blob/3cca9ab6521040fffd6fae4c6a8d485fde083b66/docker-run/docker-compose.yml#L13

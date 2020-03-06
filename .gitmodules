@@ -1,4 +1,4 @@
-[submodule "php-code"]
+[submodule "php-data"]
 	path = php-data
 	url = https://github.com/yiisoft/yii2-app-advanced.git
 [submodule "docker-run/docker-php"]

@@ -4,7 +4,7 @@ services:
     image: bscheshir/php:7.4.3-fpm-alpine-4yii2
     restart: always
     volumes:
-      - ./php-code:/var/www/html #php-code
+      - ./php-data:/var/www/html #php-data
       - ~/.composer/cache:/root/.composer/cache
     depends_on:
       - db
