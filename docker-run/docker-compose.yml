@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     environment:
-      TZ: Europe/Moscow
+      TZ: "${TZ}"
       XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT} var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=${DEV_SERVER_NAME}"
   nginx:
@@ -25,7 +25,7 @@ services:
       - ../nginx-conf:/etc/nginx/conf.d #nginx-conf
       - ../nginx-logs:/var/log/nginx #nginx-logs
     environment:
-      TZ: Europe/Moscow
+      TZ: "${TZ}"
   mysql:
     image: mysql:8.0.19
     entrypoint:
@@ -39,7 +39,7 @@ services:
     volumes:
       - ../mysql-data/db:/var/lib/mysql #mysql-data
     environment:
-      TZ: Europe/Moscow
+      TZ: "${TZ}"
       MYSQL_ROOT_PASSWORD: yii2advanced
       MYSQL_DATABASE: yii2advanced
       MYSQL_USER: yii2advanced
@@ -57,7 +57,7 @@ services:
     depends_on:
       - mysql
     environment:
-      TZ: Europe/Moscow
+      TZ: "${TZ}"
       PROXY_DB_HOST:
       PROXY_DB_PORT: 3306
       REMOTE_DB_HOST: mysql
