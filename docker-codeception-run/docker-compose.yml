@@ -63,4 +63,4 @@ services:
       - '4444'
       - '5900'
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
