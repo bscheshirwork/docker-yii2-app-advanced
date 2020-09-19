@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
       XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT} remote_enable=On var_display_max_data=1024 var_display_max_depth=5"
       PHP_IDE_CONFIG: "serverName=${DEV_SERVER_NAME}"
   nginx:
@@ -27,7 +27,7 @@ services:
          - backend.dev
          - frontend.dev
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
   db:
     image: mysql:8.0.19
     entrypoint:
@@ -39,7 +39,7 @@ services:
     volumes:
       - ../mysql-data-test/db:/var/lib/mysql #mysql-data
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
       MYSQL_ROOT_PASSWORD: yii2advanced
       MYSQL_DATABASE: yii2advanced
       MYSQL_USER: yii2advanced
@@ -52,7 +52,7 @@ services:
     volumes:
       - ../php-data:/var/www/html #php-data
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
       XDEBUG_CONFIG: "remote_host=${DEV_REMOTE_HOST} remote_port=${DEV_REMOTE_PORT_CODECEPTION} remote_enable=On"
       PHP_IDE_CONFIG: "serverName=${DEV_SERVER_NAME_CODECEPTION}"
   browser:

@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
       XDEBUG_CONFIG: "remote_enable=Off remote_autostart=Off"
   nginx:
     image: nginx:1.17.8-alpine
@@ -27,7 +27,7 @@ services:
       - ./nginx-conf:/etc/nginx/conf.d #nginx-conf
       - ./nginx-logs:/var/log/nginx #nginx-logs
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
   db:
     image: mysql:8.0.19
     entrypoint:
@@ -37,7 +37,7 @@ services:
     volumes:
       - ./mysql-data/db:/var/lib/mysql #mysql-data
     environment:
-      TZ: "${TZ}"
+      TZ: "${TZ:-Europe/Moscow}"
       MYSQL_ROOT_PASSWORD: yii2advanced
       MYSQL_DATABASE: yii2advanced
       MYSQL_USER: yii2advanced
